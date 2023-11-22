@@ -9,8 +9,6 @@ const addTaskBtn = document.getElementById('addTaskBtn');
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
 
-
-
 function create_UUID(){
     var dt = new Date().getTime();
     var uuid = 'xxxxxxxx'.replace(/[x]/g, function(c) {
@@ -20,7 +18,6 @@ function create_UUID(){
     });
     return uuid;
 }
-
 
 function AddATask() {
     const contentTask = taskInput.value.trim();
@@ -46,3 +43,6 @@ function AddATask() {
     }
 }
 addTaskBtn.addEventListener('click', AddATask);
+
+
+
