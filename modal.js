@@ -6,10 +6,8 @@ const btnCancel = document.getElementById('modal-cancel-btn');
 const btnSave = document.getElementById('modal-save-btn');
 
 function updateTask(UUID) {
-	//Abre o modal
 	modal.style.display = 'block';
 
-	//Pega o nome da tarefa e aloca no input do modal
 	modalInput.value = document.getElementById(UUID).getElementsByTagName('div')[0].innerHTML;
 	inputUUID.value = UUID;
 	console.log(modalInput);
