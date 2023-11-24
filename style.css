@@ -80,7 +80,7 @@ label {
     
 }
 
-#taskList {
+#taskList, #finishedList {
     list-style: none;
     display: flex;
     flex-direction: column;
