@@ -199,7 +199,7 @@ function loadCompletedTasksFromLocalStorage() {
             listItem.innerHTML = `
                 <div>${completedTask.content}</div>
                 <div class="editTask">
-                    <button class="update" data-task-id="${completedTask.id}"><img src="./assets/update.svg" alt=""></button> 
+    
                     <button class="btn-erase" data-task-id="${completedTask.id}"><img src="./assets/delete.svg" alt=""></button>
                     <button class="btn-done" data-task-id="${completedTask.id}"><img src="./assets/done.svg" alt=""></button>
                 </div>
