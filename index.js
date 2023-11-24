@@ -30,6 +30,34 @@ function create_UUID() {
     return uuid;
 }
 
+// ==== remove task ====
+function removeTask(taskId) {
+    removeTaskFromLocalStorage(taskId);
+
+    const taskToRemove = document.getElementById(taskId);
+    if (taskToRemove) {
+        taskToRemove.remove();
+    }
+}
+
+document.addEventListener('click', function (event) {
+    const target = event.target;
+
+    const btnErase = findParentWithClass(target, 'btn-erase');
+    
+    if (btnErase) {
+        const taskId = btnErase.getAttribute('data-task-id');
+
+        removeTask(taskId);
+    }
+});
+
+function findParentWithClass(element, className) {
+    while ((element = element.parentElement) && !element.classList.contains(className));
+    return element;
+}
+
+
 // ================= add task ========================================
 
 function AddATask() {
@@ -103,6 +131,17 @@ function loadTasksFromLocalStorage() {
 
             taskList.appendChild(listItem);
         });
+    }
+}
+function removeTaskFromLocalStorage(taskId) {
+    const storedTasks = localStorage.getItem('tasks');
+
+    if (storedTasks) {
+        const tasks = JSON.parse(storedTasks);
+
+        const filteredTasks = tasks.filter(task => task.id !== taskId);
+
+        localStorage.setItem('tasks', JSON.stringify(filteredTasks));
     }
 }
 
