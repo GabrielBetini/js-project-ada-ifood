@@ -72,6 +72,32 @@ label {
 #addTaskBtn:hover {
 	background-color: #8f91f6;
 }
+#taskInput,
+#filterInput {
+	width: 89%;
+	padding: 8px;
+	margin: 5px 10px 10px 0px;
+	border: gray;
+	border-radius: 5px;
+}
+#taskInput:focus,
+#filterInput:focus {
+	outline: none;
+}
+#addTaskBtn,
+#filterBtn {
+	padding: 8px;
+	background-color: #9395d3;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+
+#addTaskBtn:hover,
+#filterBtn:hover {
+	background-color: #8f91f6;
+}
 
 #taskList {
 	list-style: none;
@@ -86,6 +112,18 @@ label {
 	max-width: 1400px;
 	width: 100%;
 	padding-left: 10px;
+}
+
+.task,
+.filter,
+.finihedTask {
+	max-width: 1400px;
+	width: 100%;
+	padding-left: 10px;
+}
+.finihedTask {
+	padding-top: 20px;
+	text-align: center;
 }
 li {
 	display: flex;
