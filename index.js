@@ -15,7 +15,7 @@ const taskList = document.getElementById('taskList');
 
 
 const filterInput = document.getElementById('filterInput');
-const completedTaskList = document.getElementById('completedTaskList');
+const completedTaskList = document.getElementById('finishedList');
 
 // =================  id ========================================
 
@@ -30,7 +30,7 @@ function create_UUID() {
     return uuid;
 }
 
-// ==== remove task ====
+// ============== remove task ========================================
 function removeTask(taskId) {
     removeTaskFromLocalStorage(taskId);
 
@@ -49,6 +49,7 @@ document.addEventListener('click', function (event) {
         const taskId = btnErase.getAttribute('data-task-id');
 
         removeTask(taskId);
+        removeCompletedTask(taskId)
     }
 });
 
@@ -93,7 +94,7 @@ function AddATask() {
     }
 }
 
-// ================= LOCAL STORAGE ========================================
+// ================= LOCAL STORAGE TASK ========================================
 
 
 function saveTasksToLocalStorage() {
@@ -145,7 +146,7 @@ function removeTaskFromLocalStorage(taskId) {
     }
 }
 
-// ================= FILTRO ========================================
+// ====================== FILTRO ========================================
 
 
 function filterTasks() {
@@ -163,7 +164,100 @@ function filterList(list, filterText) {
 }
 
 
-// ================= EXECUÇÃO ========================================
+
+
+// =================  LOCAL STORAGE  COMPLETED TASKS ========================================
+
+
+
+
+function saveCompletedTasksToLocalStorage() {
+    const completedTasks = [];
+    for (const completedTask of completedTaskList.children) {
+        completedTasks.push({
+            id: completedTask.id,
+            content: completedTask.firstElementChild.textContent
+        });
+    }
+
+    localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
+}
+
+
+
+function loadCompletedTasksFromLocalStorage() {
+    const storedCompletedTasks = localStorage.getItem('completedTasks');
+
+    if (storedCompletedTasks) {
+        const completedTasks = JSON.parse(storedCompletedTasks);
+
+        completedTasks.forEach(completedTask => {
+            const listItem = document.createElement('li');
+            listItem.className = 'todoTask';
+            listItem.id = completedTask.id;
+
+            listItem.innerHTML = `
+                <div>${completedTask.content}</div>
+                <div class="editTask">
+                    <button class="update" data-task-id="${completedTask.id}"><img src="./assets/update.svg" alt=""></button> 
+                    <button class="btn-erase" data-task-id="${completedTask.id}"><img src="./assets/delete.svg" alt=""></button>
+                    <button class="btn-done" data-task-id="${completedTask.id}"><img src="./assets/done.svg" alt=""></button>
+                </div>
+            `;
+
+            completedTaskList.appendChild(listItem);
+        });
+    }
+}
+
+document.addEventListener('click', function (event) {
+    const target = event.target;
+
+    const btnDone = findParentWithClass(target, 'btn-done');
+
+    if (btnDone) {
+        const taskId = btnDone.getAttribute('data-task-id');
+        const taskElement = document.getElementById(taskId);
+
+        if (taskList.contains(taskElement)) {
+            taskElement.remove();
+            completedTaskList.appendChild(taskElement);
+            removeTaskFromLocalStorage(taskId); 
+            saveCompletedTasksToLocalStorage(); 
+        } else if (completedTaskList.contains(taskElement)) {
+            taskElement.remove();
+            taskList.appendChild(taskElement);
+            removeCompletedTaskFromLocalStorage(taskId); 
+            saveTasksToLocalStorage(); 
+        }
+    }
+});
+
+function removeCompletedTaskFromLocalStorage(taskId) {
+    const storedCompletedTasks = localStorage.getItem('completedTasks');
+    console.log('Removing task from completedTasks:', taskId);
+    if (storedCompletedTasks) {
+        const completedTasks = JSON.parse(storedCompletedTasks);
+
+        const filteredCompletedTasks = completedTasks.filter(task => task.id !== taskId);
+
+        localStorage.setItem('completedTasks', JSON.stringify(filteredCompletedTasks));
+       
+    }
+}
+
+function removeCompletedTask(taskId) {
+    removeCompletedTaskFromLocalStorage(taskId);
+
+    const taskToRemove = document.getElementById(taskId);
+    if (taskToRemove) {
+        taskToRemove.remove();
+    }
+}
+
+
+
+// ==================== EXECUÇÃO ========================================
 
 taskInput.addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
@@ -174,4 +268,9 @@ taskInput.addEventListener('keyup', function(event) {
 addTaskBtn.addEventListener('click', AddATask);
 filterInput.addEventListener('input', filterTasks);
 
-loadTasksFromLocalStorage();
+function loadAllFromLocalStorage() {
+    loadTasksFromLocalStorage();
+    loadCompletedTasksFromLocalStorage();
+}
+
+loadAllFromLocalStorage();
