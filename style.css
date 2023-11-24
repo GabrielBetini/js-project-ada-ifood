@@ -53,18 +53,19 @@ label {
     margin-bottom: 5px;
 }
 
-#taskInput {
+#taskInput, #filterInput {
     width: 89%;
     padding: 8px;
     margin: 5px 10px 10px 0px;
     border: gray;
     border-radius: 5px;
 }
-#taskInput:focus{
+#taskInput:focus,
+#filterInput:focus{
     outline: none;
 
 }
-#addTaskBtn {
+#addTaskBtn,#filterBtn {
     padding: 8px;
     background-color: #9395D3;
     color: white;
@@ -73,7 +74,8 @@ label {
     cursor: pointer;
 }
 
-#addTaskBtn:hover {
+#addTaskBtn:hover,
+#filterBtn:hover {
     background-color: #8f91f6;
     
 }
@@ -87,11 +89,15 @@ label {
     margin: 15px 20px 0px 10px;
 }
 
-.task {
+.task, .filter, .finihedTask {
     max-width: 1400px;
     width: 100%;
     padding-left: 10px;
   
+}
+.finihedTask{
+    padding-top: 20px;
+text-align: center;
 }
 li {
     display: flex;
@@ -106,9 +112,24 @@ li {
     padding: 0px 20px 0 20px;
     height: 82px;    
     width: 87.5%;
+    font-size: 20px;
 }
 .todoTask button{
     cursor: pointer;
     background: transparent;
     border: none;
+}
+
+
+.finihedTask ul li{
+    background: rgba(234, 230, 230, 0.33);
+    text-decoration: line-through;
+}
+
+.finihedTask ul li .btn-done{
+
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    
 }

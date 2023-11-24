@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo List</title>
     <link rel="stylesheet" href="./style.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -14,12 +14,17 @@
         <nav>
             <div class="menu">
                 <div id="logo">ToDoList</div>
-                <div id="calendar"> 20</div>
+                <div id="calendar"></div>
             </div>
 
         </nav>
     </header>
     <div id="main">
+        <div class="filter">
+            <label for="filterInput"></label>
+            <input type="text" id="filterInput" placeholder="Digite para filtrar...">
+           
+        </div>
 
         <div class="task">
             <label for="taskInput"></label>
@@ -53,7 +58,7 @@
             <ul id="taskList">
 
                 <li class="todoTask">
-                    <div>correr</div> 
+                    <div>correr hoje</div> 
                     <div class="editTask"
                     ><button class="update"><img src="./assets/update.svg" alt=""></button> 
                     <button class="btn-erase"><img src="./assets/delete.svg" alt=""></button>
