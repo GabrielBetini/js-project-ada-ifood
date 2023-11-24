@@ -122,20 +122,50 @@ li {
 .modal-content {
 	background-color: #d6d7ef;
 	margin: 15% auto;
-	width: 60%;
+	width: 50%;
 	border-radius: 10px;
 	padding: 0px, 10px, 10px, 10px;
-
 	text-align: center;
 }
 
 .modal-title {
+	color: white;
 	padding: 5px;
 	background-color: #9395d3;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .modal-btn-container {
-	padding: 5px;
+	padding: 10px;
 	background-color: #9395d3;
+}
+
+#modal-input {
+	width: 50%;
+	padding: 8px;
+	margin: 5px 10px 10px 0px;
+	border: gray;
+	border-radius: 5px;
+}
+
+.modal-btn-container button {
+	margin-right: 1px;
+	padding: 10px;
+	background-color: white;
+	color: #9395d3;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+
+#modal-cancel-btn:hover {
+	outline: 1px solid white;
+	color: white;
+	background-color: rgba(255, 0, 0, 0.8);
+}
+
+#modal-save-btn:hover {
+	outline: 1px solid white;
+	color: white;
+	background-color: rgba(0, 128, 0, 0.8);
 }

@@ -9,19 +9,15 @@ function updateTask(UUID) {
 	//Abre o modal
 	modal.style.display = 'block';
 
-	//const li = UUID.parentElement.parentElement;
-
 	//Pega o nome da tarefa e aloca no input do modal
-	modalInput.value = document.getElementById(UUID).getElementsByTagName('div')[0].outerText;
+	modalInput.value = document.getElementById(UUID).getElementsByTagName('div')[0].innerHTML;
 	inputUUID.value = UUID;
 	console.log(modalInput);
 }
 
 btnSave.addEventListener('click', () => {
-	//li.getElementsByTagName('div')[0].outerText = modalInput.value;
-
 	console.log(inputUUID);
-	document.getElementById(inputUUID.value).getElementsByTagName('div')[0].outerText =
+	document.getElementById(inputUUID.value).getElementsByTagName('div')[0].innerHTML =
 		modalInput.value;
 	modal.style.display = 'none';
 });
