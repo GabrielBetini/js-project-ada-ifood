@@ -71,33 +71,32 @@ label {
 
 #addTaskBtn:hover {
 	background-color: #8f91f6;
-=======
-#taskInput, #filterInput {
-    width: 89%;
-    padding: 8px;
-    margin: 5px 10px 10px 0px;
-    border: gray;
-    border-radius: 5px;
+}
+#taskInput,
+#filterInput {
+	width: 89%;
+	padding: 8px;
+	margin: 5px 10px 10px 0px;
+	border: gray;
+	border-radius: 5px;
 }
 #taskInput:focus,
-#filterInput:focus{
-    outline: none;
-
+#filterInput:focus {
+	outline: none;
 }
-#addTaskBtn,#filterBtn {
-    padding: 8px;
-    background-color: #9395D3;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+#addTaskBtn,
+#filterBtn {
+	padding: 8px;
+	background-color: #9395d3;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
 }
 
 #addTaskBtn:hover,
 #filterBtn:hover {
-    background-color: #8f91f6;
-    
-
+	background-color: #8f91f6;
 }
 #taskInput,
 #filterInput {
@@ -139,16 +138,17 @@ label {
 	max-width: 1400px;
 	width: 100%;
 	padding-left: 10px;
-=======
-.task, .filter, .finihedTask {
-    max-width: 1400px;
-    width: 100%;
-    padding-left: 10px;
-  
 }
-.finihedTask{
-    padding-top: 20px;
-text-align: center;
+.task,
+.filter,
+.finihedTask {
+	max-width: 1400px;
+	width: 100%;
+	padding-left: 10px;
+}
+.finihedTask {
+	padding-top: 20px;
+	text-align: center;
 }
 
 .task,
@@ -167,19 +167,6 @@ li {
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px;
-}
-.todoTask {
-	border-radius: 15px;
-	background: #fff;
-	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-	padding: 0px 20px 0 20px;
-	height: 82px;
-	width: 87.5%;
-}
-.todoTask button {
-	cursor: pointer;
-	background: transparent;
-	border: none;
 }
 
 .modal {
@@ -245,37 +232,28 @@ li {
 	background-color: rgba(0, 128, 0, 0.8);
 }
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+.todoTask {
+	border-radius: 15px;
+	background: #fff;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	padding: 0px 20px 0 20px;
+	height: 82px;
+	width: 87.5%;
+	font-size: 20px;
 }
-.todoTask{
-    border-radius: 15px;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    padding: 0px 20px 0 20px;
-    height: 82px;    
-    width: 87.5%;
-    font-size: 20px;
-}
-.todoTask button{
-    cursor: pointer;
-    background: transparent;
-    border: none;
+.todoTask button {
+	cursor: pointer;
+	background: transparent;
+	border: none;
 }
 
-
-.finihedTask ul li{
-    background: rgba(234, 230, 230, 0.33);
-    text-decoration: line-through;
+.finihedTask ul li {
+	background: rgba(234, 230, 230, 0.33);
+	text-decoration: line-through;
 }
 
-.finihedTask ul li .btn-done{
-
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    
+.finihedTask ul li .btn-done {
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
 }
-
